@@ -6,6 +6,7 @@
     --purple: #6415ff;
     --ink: #1a202c;
     --muted: #7c8ba1;
+    --content-max-width: 1280px;
 }
 
 * {
@@ -44,7 +45,7 @@ figure {
 
 .row {
     width: 100%;
-    max-width: 1280px;
+    max-width: var(--content-max-width);
     margin: 0 auto;
 }
 
@@ -90,6 +91,8 @@ figure {
 
 .nav__logo {
     gap: 12px;
+    margin: 8px 0;
+    padding-bottom: 4px;
     color: #243e63;
     font-size: 24px;
     font-weight: 800;
@@ -226,13 +229,13 @@ figure {
 .hero__row {
     display: flex;
     align-items: center;
-    gap: 48px;
-    padding: 112px 0 72px;
+    gap: 0;
+    padding: 96px 0 100px;
 }
 
 .hero__copy {
-    width: 44%;
-    flex: 0 0 44%;
+    width: 40%;
+    flex: 0 0 40%;
 }
 
 .hero h1 {
@@ -240,14 +243,14 @@ figure {
     font-size: clamp(36px, 4vw, 48px);
     font-weight: 700;
     letter-spacing: -1.2px;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
 .hero__description {
-    margin-top: 24px;
+    margin: 32px 0;
     color: #243e63;
     font-size: 18px;
-    line-height: 1.55;
+    line-height: 1.5;
 }
 
 .hero__form {
@@ -255,7 +258,7 @@ figure {
     display: flex;
     height: 68px;
     align-items: center;
-    margin-top: 30px;
+    max-width: 448px;
     padding: 5px;
     border: 2px solid #e5e7eb;
     border-radius: 999px;
@@ -289,14 +292,17 @@ figure {
 }
 
 .form__message {
-    min-height: 20px;
     margin: 6px 12px 0;
     color: var(--purple);
     font-size: 13px;
 }
 
+.form__message:empty {
+    display: none;
+}
+
 .trusted {
-    margin-top: 34px;
+    margin-top: 80px;
 }
 
 .trusted p {
@@ -308,23 +314,21 @@ figure {
 
 .trusted img {
     width: 100%;
-    max-width: 405px;
     margin-top: 16px;
     opacity: .55;
 }
 
 .hero__visual {
-    width: 56%;
-    flex: 1;
+    width: 60%;
+    flex: 0 0 60%;
 }
 
 .hero__visual img {
     width: 100%;
-    max-height: 500px;
 }
 
 .section__intro {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto 60px;
     text-align: center;
 }
@@ -340,9 +344,9 @@ figure {
 h2 {
     color: var(--ink);
     font-size: clamp(32px, 3.5vw, 48px);
-    font-weight: 800;
-    letter-spacing: -1px;
-    line-height: 1.2;
+    font-weight: 900;
+    letter-spacing: .025em;
+    line-height: 1.5;
 }
 
 .section__intro h2,
@@ -354,8 +358,8 @@ h2 {
 .section__description,
 .body-copy {
     color: var(--muted);
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.625;
 }
 
 .section__description {
@@ -367,15 +371,31 @@ h2 {
     position: relative;
 }
 
+.features .container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+}
+
+.features .section__intro {
+    max-width: var(--content-max-width);
+}
+
+.features .section__description {
+    max-width: 576px;
+}
+
 .features__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 64px 36px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
 }
 
 .feature {
     display: flex;
-    gap: 20px;
+    width: 33.333%;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 32px 24px;
 }
 
 .feature__icon {
@@ -397,30 +417,45 @@ h2 {
 .feature h3,
 .steps__list h3,
 .values__grid h3 {
-    margin: 5px 0 12px;
+    margin: 0;
     color: var(--ink);
     font-size: 20px;
     font-weight: 700;
+}
+
+.feature h3 {
+    font-size: 24px;
+}
+
+.feature > div:last-child {
+    min-width: 0;
+    margin-top: 8px;
 }
 
 .feature p,
 .steps__list p,
 .values__grid p {
     color: var(--muted);
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2;
+}
+
+.feature p {
+    max-width: 212px;
+    margin-top: 16px;
 }
 
 .split {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 64px;
+    gap: 0;
 }
 
 .split__copy {
-    width: 48%;
-    flex: 0 0 48%;
+    width: 50%;
+    flex: 0 0 50%;
 }
 
 .split__copy .body-copy {
@@ -428,8 +463,8 @@ h2 {
 }
 
 .split__image {
-    width: 48%;
-    flex: 1;
+    width: 50%;
+    flex: 0 0 50%;
 }
 
 .split__image img {
@@ -461,8 +496,19 @@ h2 {
     z-index: 1;
 }
 
-.steps-section .container {
-    padding-top: 40px;
+#quality .split__copy,
+#quality .split__image--border {
+    width: 43.125%;
+    flex-basis: 43.125%;
+}
+
+#quality .split__image--border {
+    margin-right: 4.45%;
+    margin-left: 9.3%;
+}
+
+.steps-section .split__copy {
+    padding: 32px 0 32px 64px;
 }
 
 .steps__image img {
@@ -472,7 +518,7 @@ h2 {
 .steps__list {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 32px;
     margin-top: 32px;
     list-style: none;
 }
@@ -494,11 +540,22 @@ h2 {
     font-size: 20px;
 }
 
+.steps__list p {
+    max-width: 320px;
+}
+
 .values__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin: 30px 0;
+    display: flex;
+    margin: 32px 0;
+}
+
+.value {
+    width: 50%;
+    margin-right: 32px;
+}
+
+.value:last-child {
+    margin-right: 0;
 }
 
 .value__heading {
@@ -534,19 +591,38 @@ h2 {
 }
 
 .values__image img {
-    max-width: 530px;
+    width: 100%;
     margin-left: auto;
 }
 
-.pricing-section .container {
-    padding-top: 64px;
+.values__grid h3 {
+    margin-bottom: 12px;
+}
+
+#values .split__copy {
+    padding: 32px 64px 32px 0;
+}
+
+#values .split__copy h2 {
+    margin: 16px 0 32px;
 }
 
 .pricing__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 384px));
     gap: 32px;
     align-items: stretch;
+    justify-content: center;
+    margin-top: -1px;
+    padding-top: 64px;
+}
+
+.pricing-section .container {
+    padding-top: 96px;
+}
+
+.pricing-section .section__intro {
+    margin-bottom: 66px;
 }
 
 .price-card {
@@ -554,6 +630,7 @@ h2 {
     border-radius: 8px;
     background: #fff;
     box-shadow: 0 10px 25px rgb(36 62 99 / 12%);
+    padding-top: 8px;
     text-align: center;
 }
 
@@ -565,7 +642,7 @@ h2 {
 
 .price-card__top::before {
     position: absolute;
-    top: 0;
+    top: -8px;
     right: 0;
     left: 0;
     height: 8px;
@@ -583,6 +660,10 @@ h2 {
     font-size: 20px;
 }
 
+.price-card__top {
+    padding-top: 34px;
+}
+
 .price {
     margin-bottom: 8px;
     color: var(--ink);
@@ -598,9 +679,13 @@ h2 {
 }
 
 .price-card__body {
-    padding: 28px 20px;
+    padding: 34px 20px;
     border-top: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
+}
+
+.price-card__bottom {
+    padding-top: 33px;
 }
 
 .price-card__body h4 {
@@ -610,9 +695,10 @@ h2 {
 }
 
 .price-card__body p {
-    margin-top: 16px;
+    margin-top: 20px;
     color: #718096;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .price-card__bottom .button {
@@ -621,11 +707,11 @@ h2 {
 }
 
 .price-card--business {
-    background: linear-gradient(135deg, #4c1d95, #6415ff);
+    background: linear-gradient(135deg, #4c51bf, #667eea);
 }
 
 .price-card--business .price-card__top::before {
-    background: #6415ff;
+    background: #667eea;
 }
 
 .price-card--business .price-card__top h3,
@@ -646,12 +732,12 @@ h2 {
 }
 
 .testimonial-section .container {
-    padding-top: 64px;
+    padding-top: 96px;
 }
 
 .testimonial__image {
-    width: 48%;
-    flex: 1;
+    width: 50%;
+    flex: 0 0 50%;
 }
 
 .testimonial__image img {
@@ -659,8 +745,9 @@ h2 {
 }
 
 .testimonial__copy {
-    width: 48%;
-    flex: 0 0 48%;
+    width: 50%;
+    flex: 0 0 50%;
+    padding-left: 64px;
 }
 
 .stars {
@@ -677,7 +764,32 @@ h2 {
 }
 
 .testimonial__quote {
-    font-size: 14px;
+    font-size: 16px;
+    margin: 16px 0 32px;
+}
+
+.testimonial__copy .eyebrow {
+    font-size: 16px;
+}
+
+.testimonial__copy h2 {
+    margin-bottom: 24px;
+}
+
+.testimonial__copy .stars {
+    margin: 44px 0 0;
+    font-size: 16px;
+    line-height: 1.375;
+}
+
+.testimonial__copy .testimonial__title {
+    margin: 16px 0 0;
+    line-height: 1.625;
+}
+
+.testimonial__person {
+    gap: 18px;
+    margin-top: 0;
 }
 
 .testimonial__person {
@@ -688,8 +800,8 @@ h2 {
 }
 
 .testimonial__person > img {
-    width: 56px;
-    height: 56px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -732,35 +844,51 @@ h2 {
 }
 
 .cta-section {
-    padding-bottom: 96px;
+    padding: 96px 32px;
 }
 
 .cta {
     position: relative;
     display: flex;
-    min-height: 280px;
+    width: 100%;
+    max-width: var(--content-max-width);
     align-items: center;
     justify-content: space-between;
     gap: 32px;
     overflow: hidden;
-    padding: 64px 80px;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 96px 32px;
     border-radius: 8px;
     background: var(--purple);
 }
 
 .cta h2 {
     z-index: 1;
-    max-width: 560px;
+    max-width: 480px;
     color: #fff;
     font-size: 30px;
     letter-spacing: 0;
 }
 
+.cta__circles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 .cta__buttons {
     z-index: 1;
     display: flex;
+    width: 480px;
     flex: 0 0 auto;
+    justify-content: flex-end;
     gap: 20px;
+}
+
+.cta__buttons .button {
+    height: 60px;
 }
 
 .button--coral {
@@ -806,6 +934,60 @@ h2 {
     padding: 80px 32px 32px;
     background: var(--purple);
     color: #fff;
+}
+
+@media (min-width: 1025px) {
+    .features .section__intro {
+        margin-bottom: 36px;
+    }
+
+    .features__grid {
+        margin-top: 36px;
+    }
+
+    .split__copy h2 {
+        margin-bottom: 16px;
+        line-height: 1.25;
+    }
+
+    .steps-section .split__copy h2 {
+        line-height: 1.5;
+    }
+
+    .split__copy .body-copy {
+        margin-bottom: 0;
+    }
+
+    .split__copy .button {
+        height: 41px;
+        min-height: 41px;
+        margin-top: 32px;
+    }
+
+    .testimonial__copy h2 {
+        line-height: 1.25;
+    }
+
+    .steps__list p {
+        font-size: 14px;
+    }
+
+    .values__grid {
+        min-height: 162px;
+        margin: 0;
+    }
+
+    #values .split__copy .button {
+        margin-top: 48px;
+    }
+
+    .pricing-section .section__intro {
+        margin-bottom: 0;
+    }
+
+    .pricing-section .section__intro h2 {
+        margin-bottom: 16px;
+    }
 }
 
 .footer__links {
@@ -883,6 +1065,20 @@ h2 {
     font-weight: 700;
 }
 
+@media (max-width: 1280px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero__description {
+        font-size: 16px;
+    }
+
+    .hero__visual img {
+        max-width: 512px;
+    }
+}
+
 @media (max-width: 1024px) {
     .nav__links {
         display: none;
@@ -894,144 +1090,272 @@ h2 {
 
     .hero__row {
         flex-direction: column;
-        gap: 24px;
-        padding-top: 100px;
+        gap: 0;
+        padding: 96px 0;
     }
 
     .hero__copy,
     .hero__visual {
         width: 100%;
-        max-width: 680px;
+        max-width: 512px;
         flex: auto;
         text-align: center;
     }
 
+    .hero h1 {
+        font-size: 30px;
+        letter-spacing: 0;
+    }
+
+    .hero__description {
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
     .hero__form {
-        max-width: 520px;
-        margin-right: auto;
-        margin-left: auto;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .trusted {
+        margin-top: 48px;
     }
 
     .trusted img {
+        max-width: none;
         margin-right: auto;
         margin-left: auto;
     }
 
+    .hero__visual {
+        margin: 48px auto 0;
+    }
+
     .hero__visual img {
-        max-height: 440px;
+        max-height: none;
     }
 
-    .split {
-        gap: 40px;
+    .feature {
+        width: 50%;
+        padding: 32px 8px;
     }
 
-    .split__copy,
-    .testimonial__copy {
+    .feature h3 {
+        font-size: 20px;
+    }
+
+    #quality .split__copy {
         width: 50%;
         flex-basis: 50%;
+        padding-right: 48px;
+    }
+
+    #quality .split__image--border {
+        width: 50%;
+        flex-basis: 50%;
+        margin: 0;
     }
 
     .pricing__grid {
-        gap: 18px;
+        max-width: 384px;
+        grid-template-columns: 1fr;
+        gap: 64px;
+        margin: -1px auto 0;
+        padding-top: 64px;
+    }
+
+    .pricing-section .container {
+        padding-top: 136px;
+    }
+
+    .pricing-section .section__intro {
+        margin-bottom: 0;
+    }
+
+    .pricing-section .section__intro h2 {
+        margin: 16px 0;
+        font-size: 48px;
+        line-height: 1.5;
+    }
+
+    .pricing-section .section__description {
+        max-width: 576px;
     }
 
     .price-card__top,
     .price-card__bottom {
-        padding-right: 16px;
-        padding-left: 16px;
-    }
-
-    .price {
-        font-size: 40px;
+        padding-right: 24px;
+        padding-left: 24px;
     }
 
     .cta {
-        padding: 56px 48px;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 96px 32px;
+    }
+
+    .cta-section {
+        padding: 80px 32px;
+    }
+
+    .cta h2 {
+        max-width: 512px;
+        text-align: center;
+    }
+
+    .cta__buttons {
+        width: 337px;
+        margin-top: 24px;
+    }
+
+    .cta__buttons .button {
+        height: 68px;
+        min-height: 68px;
+    }
+
+    .site-footer {
+        padding: 80px 32px;
     }
 }
 
 @media (max-width: 768px) {
     .container {
-        padding: 76px 0;
+        padding: 96px 0;
     }
 
     .hero__row {
-        padding: 78px 0 48px;
+        padding-top: 97px;
+        padding-bottom: 98px;
     }
 
     .features__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 44px 24px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 100%;
+        max-width: 384px;
+    }
+
+    .feature h3 {
+        font-size: 20px;
+    }
+
+    .split__copy h2 {
+        margin-bottom: 16px;
+        font-size: 36px;
+        line-height: 1.25;
+    }
+
+    .steps-section .split__copy h2 {
+        line-height: 1.5;
+    }
+
+    .split__copy .body-copy {
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+
+    .split__copy .button {
+        height: 41px;
+        min-height: 41px;
+        margin-top: 32px;
+    }
+
+    .steps__list p {
+        font-size: 14px;
+    }
+
+    .steps__list li {
+        min-height: 136px;
+        align-items: flex-start;
+    }
+
+    .section__description {
+        font-size: 14px;
     }
 
     .split,
     .split--reverse {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+    }
+
+    #quality .split,
+    #values .split {
+        flex-direction: column-reverse;
     }
 
     .split__copy,
     .split__image,
     .testimonial__copy,
-    .testimonial__image {
+    .testimonial__image,
+    #quality .split__copy,
+    #quality .split__image--border {
         width: 100%;
+        max-width: 448px;
         flex: auto;
-    }
-
-    .split__copy {
-        order: 1;
-    }
-
-    .split__image {
-        order: 2;
-        max-width: 620px;
         margin: 0 auto;
     }
 
-    .split--reverse .split__image,
-    .split--reverse .testimonial__image {
-        order: 2;
+    .split__copy,
+    .steps-section .split__copy,
+    #quality .split__copy,
+    #values .split__copy,
+    .testimonial__copy {
+        margin-top: 64px;
+        padding: 0;
+        text-align: center;
     }
 
-    .split--reverse .split__copy,
-    .split--reverse .testimonial__copy {
-        order: 1;
-    }
-
-    .steps__image img {
+    #quality .split__image--border {
         margin: 0 auto;
     }
 
-    .values__image img {
+    .values__grid {
+        max-width: 320px;
+        flex-direction: column;
+        min-height: 298px;
         margin: 0 auto;
+    }
+
+    .value {
+        width: 100%;
+        margin: 32px 0 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .value__heading {
+        justify-content: center;
+    }
+
+    #values .split__copy .button {
+        margin-top: 48px;
     }
 
     .pricing__grid {
-        max-width: 450px;
-        grid-template-columns: 1fr;
-        gap: 28px;
-        margin: 0 auto;
+        max-width: 384px;
     }
 
-    .price-card__top,
-    .price-card__bottom {
-        padding: 28px 24px;
+    .testimonial__copy {
+        padding-left: 0;
     }
 
-    .testimonial__image img {
-        max-height: 340px;
-        object-fit: contain;
+    .testimonial__copy h2 {
+        font-size: 36px;
+        line-height: 1.25;
     }
 
-    .cta {
-        min-height: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 48px 36px;
+    .testimonial__copy > .body-copy:not(.testimonial__quote) {
+        font-size: 14px;
     }
 
-    .cta h2 {
-        font-size: 26px;
+    .testimonial-section .container {
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 
     .footer__links {
@@ -1040,63 +1364,107 @@ h2 {
     }
 }
 
-@media (max-width: 560px) {
-    .landing,
-    .section {
-        padding-right: 20px;
-        padding-left: 20px;
+@media (max-width: 640px) {
+    .container {
+        padding: 80px 0;
     }
 
-    .site-nav {
-        padding-top: 20px;
+    .pricing-section .container {
+        padding-top: 80px;
     }
 
-    .nav__logo {
-        gap: 8px;
-        font-size: 21px;
+    .pricing-section .section__intro {
+        margin-bottom: 40px;
     }
 
-    .nav__logo img {
-        width: 36px;
-        height: 36px;
+    .pricing-section .section__intro h2 {
+        margin: 0 0 20px;
+        font-size: 36px;
+        line-height: 1.25;
     }
 
-    .hero__row {
+    #values .split__copy .button {
+        margin-top: 0;
+    }
+
+    .testimonial__copy h2 {
+        font-size: 30px;
+        line-height: 1.25;
+    }
+
+    .testimonial__person {
+        gap: 20px;
+    }
+
+    .testimonial-section .container {
+        padding-top: 80px;
+    }
+
+    .pricing__grid {
+        row-gap: 64px;
+        margin-top: 0;
         padding-top: 64px;
     }
 
-    .hero h1 {
-        font-size: 36px;
-        letter-spacing: -.8px;
+    .price-card {
+        margin-top: 0;
+        padding-top: 8px;
     }
 
-    .hero__description {
-        font-size: 16px;
+    .price-card__top {
+        padding-top: 29px;
+    }
+
+    .price-card__top::before {
+        top: -8px;
+    }
+
+    .price-card__body {
+        padding-top: 34px;
+        padding-bottom: 34px;
+    }
+
+    .price-card__bottom {
+        padding-top: 33px;
+    }
+
+    .price {
+        font-size: 36px;
+    }
+
+    .hero__row {
+        padding: 80px 0 84px;
     }
 
     .hero__form {
         height: auto;
         flex-direction: column;
-        gap: 8px;
-        padding: 8px;
-        border-radius: 8px;
+        gap: 16px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
     }
 
     .hero__form input {
-        min-height: 48px;
-        text-align: center;
+        height: 60px;
+        min-height: 60px;
+        padding: 16px 32px;
+        border: 2px solid #e5e7eb;
+        border-radius: 999px;
+        text-align: left;
     }
 
     .hero__form .button {
         width: 100%;
+        min-width: 0;
+        height: 24px;
+        min-height: 24px;
+        flex: auto;
     }
 
-    .trusted {
-        margin-top: 24px;
-    }
-
-    .container {
-        padding: 64px 0;
+    .trusted p {
+        font-size: 14px;
+        letter-spacing: .05em;
     }
 
     .section__intro {
@@ -1108,66 +1476,142 @@ h2 {
     }
 
     h2 {
-        font-size: 32px;
+        font-size: 30px;
+        line-height: 1.25;
     }
 
-    .section__description,
+    #features h2,
+    #pricing h2 {
+        font-size: 36px;
+    }
+
+    .section__description {
+        font-size: 14px;
+    }
+
     .body-copy {
-        font-size: 15px;
+        font-size: 14px;
     }
 
-    .features__grid {
-        grid-template-columns: 1fr;
-        gap: 34px;
+    .split__copy h2 {
+        margin-bottom: 20px;
+        font-size: 30px;
+        line-height: 1.25;
     }
 
-    .feature {
-        gap: 16px;
+    .steps-section .split__copy h2 {
+        line-height: 1.25;
     }
 
-    .feature__icon {
-        width: 56px;
-        height: 56px;
-        flex-basis: 56px;
+    .split__copy .body-copy {
+        margin-bottom: 28px;
     }
 
-    .feature h3 {
-        margin-top: 2px;
-        font-size: 18px;
+    .split__copy .button {
+        height: 48px;
+        min-height: 48px;
+        margin-top: 0;
+    }
+
+    .values__grid p {
+        line-height: 1.625;
     }
 
     .values__grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        min-height: 0;
+        margin: 32px 0 48px;
+    }
+
+    .testimonial__quote {
+        font-size: 16px;
+    }
+
+    .feature {
+        width: 100%;
+        max-width: 384px;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 32px 8px;
+        text-align: center;
+    }
+
+    .feature > div:last-child {
+        width: 263px;
+        max-width: 100%;
+        margin-top: 16px;
+    }
+
+    .feature p {
+        max-width: none;
+        margin-top: 4px;
+    }
+
+    .feature h3 {
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .steps__list {
+        margin-top: 51px;
+    }
+
+    .steps__list li {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .steps__list p {
+        font-size: 14px;
+        margin: 0 auto;
     }
 
     .testimonial__person {
-        flex-wrap: wrap;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .testimonial__person > img {
+        width: 64px;
+        height: 64px;
     }
 
     .testimonial__arrows {
-        margin-left: auto;
+        margin: 32px 0 0;
     }
 
     .cta-section {
-        padding-bottom: 64px;
+        padding: 80px 32px;
     }
 
     .cta {
-        padding: 40px 24px;
+        gap: 0;
+        padding: 80px 0;
+    }
+
+    .cta h2 {
+        max-width: none;
+        padding: 0 32px;
+        font-size: 24px;
+        line-height: 1.125;
     }
 
     .cta__buttons {
-        width: 100%;
+        width: 186px;
         flex-direction: column;
+        gap: 22px;
     }
 
     .cta__buttons .button {
         width: 100%;
+        height: 56px;
+        min-height: 56px;
     }
 
     .site-footer {
-        padding: 64px 20px 24px;
+        padding: 80px 32px;
     }
 
     .footer__links {

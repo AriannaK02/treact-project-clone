@@ -21,7 +21,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-document.querySelector("#signup-form").addEventListener("submit", (event) => {
+document.querySelector("#signup").addEventListener("submit", (event) => {
     event.preventDefault();
     const email = document.querySelector("#email").value;
     document.querySelector(".form__message").textContent = `Thanks! We'll be in touch at ${email}.`;
