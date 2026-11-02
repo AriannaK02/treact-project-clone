@@ -50,6 +50,9 @@ figure {
 }
 
 .container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
     padding: 96px 0;
 }
 
@@ -369,15 +372,6 @@ h2 {
 
 .features {
     position: relative;
-}
-
-.features .container {
-    max-width: var(--content-max-width);
-    margin: 0 auto;
-}
-
-.features .section__intro {
-    max-width: var(--content-max-width);
 }
 
 .features .section__description {
